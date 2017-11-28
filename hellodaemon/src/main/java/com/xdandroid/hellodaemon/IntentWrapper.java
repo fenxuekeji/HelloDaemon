@@ -52,6 +52,8 @@ public class IntentWrapper {
     protected static final int ZTE = 116;
     //中兴 锁屏加速受保护应用
     protected static final int ZTE_GOD = 117;
+    //oppo 旧旧版本
+    protected static final int OPPO_OLD_OLD = 118;
     
     protected static List<IntentWrapper> sIntentWrapperList;
 
@@ -125,6 +127,12 @@ public class IntentWrapper {
             Intent oppoOldIntent = new Intent();
             oppoOldIntent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.startup.StartupAppListActivity"));
             sIntentWrapperList.add(new IntentWrapper(oppoOldIntent, OPPO_OLD));
+            
+             //Oppo 自启动管理(旧旧版本系统)
+            Intent oppoOldOldIntent = new Intent();
+            oppoOldOldIntent.setComponent(new ComponentName("com.oppo.safe", "com.oppo.safe.permission.startup.StartupAppListActivity"));
+            sIntentWrapperList.add(new IntentWrapper(oppoOldOldIntent, OPPO_OLD_OLD));
+            
 
             //Vivo 后台高耗电
             Intent vivoGodIntent = new Intent();
@@ -311,6 +319,7 @@ public class IntentWrapper {
                 case LETV:
                 case XIAOMI:
                 case OPPO:
+                case OPPO_OLD_OLD:
                 case OPPO_OLD:
                     new AlertDialog.Builder(a)
                             .setCancelable(false)
